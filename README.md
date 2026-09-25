@@ -403,39 +403,6 @@ kaggle competitions submit \
     -m "Submission from MLflow run 98f55631"
 ```
 
-# 📸 Project Screenshots
-
-The following screenshots document the main stages of the project and provide visual evidence of the Machine Learning workflow, MLflow experiment tracking and Kaggle submission.
-
----
-
-## 🤖 Loan Approval Prediction
-
-Screenshot showing the Loan Approval Prediction project and the Machine Learning results.
-
-![Loan Approval Prediction](screenshots/loanApprovePrediction.png)
-
----
-
-## 📄 Submission CSV
-
-Screenshot showing the generated `submission.csv` and its structure.
-
-![Submission CSV](screenshots/submission.png)
-
----
-
-## 🏆 Kaggle Submission
-
-The final prediction file was successfully submitted to the Kaggle competition.
-
-Kaggle successfully confirmed the submission:
-
-```text
-Successfully submitted to Loan Approval Prediction
-
----
-
 # 🛠️ Technologies Used
 
 | Technology              | Purpose                 |
