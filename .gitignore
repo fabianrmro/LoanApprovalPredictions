@@ -219,3 +219,8 @@ __marimo__/
 
 #DataInformation
 data
+
+# MLflow artifacts
+mlartifacts/
+mlruns/
+mlflow.db
