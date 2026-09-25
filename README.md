@@ -1,357 +1,242 @@
 # 💳 Loan Approval Predictions
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/Scikit--learn-Machine%20Learning-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn">
-  <img src="https://img.shields.io/badge/MLflow-Experiment%20Tracking-0194E2?style=for-the-badge&logo=mlflow&logoColor=white" alt="MLflow">
-  <img src="https://img.shields.io/badge/Kaggle-Competition-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle">
-</p>
+End-to-end Machine Learning project for loan approval prediction using **Scikit-learn, MLflow, Docker, FastAPI and Kaggle**.
 
-<h3 align="center">
-  Machine Learning Project for Loan Approval Prediction
-</h3>
-
-<p align="center">
-  End-to-end Machine Learning workflow using Scikit-learn, MLflow and Kaggle.
-</p>
+The project covers the complete workflow from data exploration and model training to experiment tracking, Kaggle submission and model deployment as a REST API.
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-## Fabian R.
+**Fabian R. M.**
 
 Machine Learning & Data Science Project
 
-🔗 **GitHub Repository:**  
-https://github.com/fabianrmro/LoanApprovalPredictions
+* GitHub: [LoanApprovalPredictions](https://github.com/fabianrmro/LoanApprovalPredictions)
+* Kaggle Competition: [Loan Approval Prediction — Playground Series S4E10](https://www.kaggle.com/competitions/playground-series-s4e10)
 
 ---
 
-# 📌 About the Project
+## 📌 About the Project
 
-**Loan Approval Predictions** is an end-to-end Machine Learning project focused on predicting whether a loan application will be approved.
+This project was developed using the **Loan Approval Prediction** Kaggle competition from the Playground Series.
 
-The project was developed using the **Loan Approval Prediction** Kaggle competition from the Playground Series.
+The objective is to build a binary classification model for the `loan_status` target variable and develop a reproducible Machine Learning workflow around it.
 
-The main goal was not only to train a classification model, but also to implement a complete Machine Learning workflow including:
+The project includes:
 
-- 📊 Exploratory Data Analysis
-- 🧹 Data preprocessing
-- ⚙️ Feature engineering
-- 🤖 Machine Learning model training
-- 📈 Model evaluation
-- 🎚️ Classification threshold optimization
-- 🧪 Experiment tracking with MLflow
-- 📦 Model and artifact logging
-- 📄 Submission file generation
-- 🏆 Kaggle submission
-
-The project therefore covers the complete process from raw data to a final competition submission.
-
----
-
-# 🎯 Project Objective
-
-The objective of this project is to develop a binary classification model capable of predicting the `loan_status` of unseen loan applications.
-
-The target variable is:
-
-| Value | Meaning |
-|:---:|---|
-| `0` | Loan not approved |
-| `1` | Loan approved |
-
-The final predictions are generated using the format required by Kaggle.
+* Exploratory Data Analysis
+* Data preprocessing
+* Feature preparation
+* Random Forest classification
+* Model evaluation
+* Classification threshold optimization
+* MLflow experiment tracking
+* Model and artifact logging
+* Kaggle submission generation
+* Docker containerization
+* FastAPI model serving
+* Prediction through a REST API
 
 ---
 
-# 🏆 Kaggle Competition
+## 🎯 Objectives
 
-This project was developed for the following Kaggle competition:
+The main objectives of the project are:
 
-## Loan Approval Prediction — Playground Series S4E10
-
-🔗 **Kaggle Competition:**  
-https://www.kaggle.com/competitions/playground-series-s4e10
-
-🔗 **GitHub Repository:**  
-https://github.com/fabianrmro/LoanApprovalPredictions
-
-The final prediction file was successfully submitted to Kaggle using the **Kaggle CLI**.
+1. Explore and understand the loan application dataset.
+2. Build a preprocessing and Machine Learning pipeline.
+3. Train a Random Forest classification model.
+4. Evaluate model performance using ROC AUC and threshold-related metrics.
+5. Optimize the classification threshold using `TunedThresholdClassifierCV`.
+6. Track experiments and artifacts with MLflow.
+7. Generate and submit predictions to Kaggle.
+8. Deploy the trained model as an API using Docker and FastAPI.
+9. Serve the model from MLflow and expose predictions through an HTTP endpoint.
 
 ---
 
-# 🧠 Machine Learning Workflow
+## 🧠 Machine Learning Workflow
 
-The complete workflow implemented in this project can be summarized as:
+The project follows this workflow:
 
 ```text
-                         ┌─────────────────────┐
-                         │       DATASET       │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │ EXPLORATORY DATA    │
-                         │      ANALYSIS       │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │ DATA PREPROCESSING  │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │ FEATURE ENGINEERING │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │   MODEL TRAINING    │
-                         │  Random Forest      │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │ MODEL EVALUATION    │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │ THRESHOLD           │
-                         │ OPTIMIZATION        │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │       MLFLOW        │
-                         │ EXPERIMENT TRACKING │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │   SUBMISSION.CSV    │
-                         └──────────┬──────────┘
-                                    │
-                                    ▼
-                         ┌─────────────────────┐
-                         │       KAGGLE        │
-                         │     SUBMISSION      │
-                         └─────────────────────┘
-````
+Dataset
+   │
+   ▼
+Exploratory Data Analysis
+   │
+   ▼
+Data Preprocessing
+   │
+   ▼
+Random Forest
+   │
+   ▼
+Model Evaluation
+   │
+   ▼
+Threshold Optimization
+   │
+   ▼
+MLflow Experiment Tracking
+   │
+   ├── Model
+   └── submission.csv
+   │
+   ▼
+Kaggle Submission
+   │
+   ▼
+Docker + FastAPI Deployment
+   │
+   ▼
+REST API Prediction
+```
 
 ---
 
-# 📊 Dataset
+## 📊 Dataset
 
 The project uses the dataset provided by the Kaggle competition.
 
-The training dataset contains:
+Current dataset sizes:
 
-* **58,645 observations**
+| Dataset       |   Rows |
+| ------------- | -----: |
+| Training data | 58,645 |
+| Test data     | 39,098 |
+| Submission    | 39,098 |
 
-The test dataset contains:
+The training data contains the target variable:
 
-* **39,098 observations**
-
-The final submission contains:
-
-* **39,098 predictions**
-* **2 columns**
-* `id`
-* `loan_status`
-
-### Submission format
-
-```csv
-id,loan_status
-58645,1
-58646,0
-58647,1
-58648,0
-58649,0
+```text
+loan_status
 ```
 
-The generated submission file was checked before uploading it to Kaggle.
+with binary values:
+
+```text
+0
+1
+```
+
+The generated submission contains:
+
+```text
+id
+loan_status
+```
+
+The dataset and submission files are available under:
+
+```text
+data/loan_prediction/
+```
 
 ---
 
-# 🔍 Exploratory Data Analysis
+## 🤖 Machine Learning Model
 
-The project includes an exploratory analysis of the dataset to understand:
+The main classifier is a:
 
-* Dataset structure
-* Feature types
-* Missing values
-* Numerical variables
-* Categorical variables
-* Target distribution
-* Relationships between variables
-* Relevant patterns within the data
+### Random Forest Classifier
 
-The analysis was performed using Python and common Data Science libraries such as:
+The model is implemented together with a Scikit-learn preprocessing pipeline.
 
-* Pandas
-* NumPy
-* Matplotlib
-* Seaborn
+Numerical features are standardized using `StandardScaler`, while categorical features are encoded using `OneHotEncoder`.
 
----
+The resulting preprocessing and model components are combined in a Scikit-learn `Pipeline`.
 
-# 🧹 Data Preprocessing
-
-Before training the Machine Learning model, the dataset goes through a preprocessing pipeline.
-
-The preprocessing workflow handles the different types of features and prepares the data for model training.
-
-The objective is to ensure that the same transformations are applied consistently to both training and test data.
-
----
-
-# 🤖 Machine Learning Model
-
-The project uses a classification pipeline based on:
-
-## 🌲 Random Forest Classifier
-
-The Random Forest model is used to predict the probability of loan approval.
-
-The project then uses:
+The project also uses:
 
 ```text
 TunedThresholdClassifierCV
 ```
 
-to optimize the classification threshold.
-
-Instead of automatically using:
-
-```text
-threshold = 0.5
-```
-
-the project evaluates different thresholds in order to identify an operating point based on the evaluation process used in the notebook.
+to evaluate classification thresholds instead of relying exclusively on the default threshold of `0.5`.
 
 ---
 
-# 🎚️ Threshold Optimization
+## 🎚️ Threshold Optimization
 
-One of the important aspects of this project is the analysis of the classification threshold.
+The classification threshold determines how predicted probabilities are converted into binary classes.
 
-A binary classifier normally converts predicted probabilities into classes using a threshold.
+The project evaluates threshold-related metrics including:
 
-For example:
-
-```text
-Probability >= 0.5 → Class 1
-Probability < 0.5  → Class 0
-```
-
-However, the default threshold of `0.5` is not necessarily the only threshold worth evaluating.
-
-This project therefore evaluates different thresholds and compares metrics such as:
-
-* AUC
+* ROC AUC
 * False Positive Rate
 * True Positive Rate
 
-The threshold selected during the experiment was:
+The selected MLflow experiment recorded the following threshold:
 
 ```text
-Optimal Threshold = 0.19192
+Optimal threshold: 0.19192
 ```
+
+The experiment also recorded the metrics associated with the selected threshold and the default threshold.
 
 ---
 
-# 📈 Model Results
+## 📈 Model Results
 
-The selected MLflow run produced the following metrics:
+The selected MLflow run recorded the following metrics:
 
-| Metric                      |       Value |
-| --------------------------- | ----------: |
-| **AUC**                     | **0.86998** |
-| **Optimal Threshold**       | **0.19192** |
-| **FPR — Optimal Threshold** | **0.06394** |
-| **TPR — Optimal Threshold** | **0.80390** |
-| **Average Threshold**       | **0.50000** |
-| **FPR — Average Threshold** | **0.01081** |
-| **TPR — Average Threshold** | **0.72107** |
+| Metric                  |   Value |
+| ----------------------- | ------: |
+| AUC                     | 0.86998 |
+| Optimal Threshold       | 0.19192 |
+| FPR — Optimal Threshold | 0.06394 |
+| TPR — Optimal Threshold | 0.80390 |
+| Average Threshold       | 0.50000 |
+| FPR — Average Threshold | 0.01081 |
+| TPR — Average Threshold | 0.72107 |
 
-### 📊 AUC
-
-The model achieved an AUC of approximately:
-
-```text
-0.86998
-```
-
-in the evaluation performed during the project.
+These values correspond to the MLflow experiment run documented in the project notebook.
 
 ---
 
-# 🧪 MLflow Experiment Tracking
+## 🧪 MLflow Experiment Tracking
 
-**MLflow** was used to track the Machine Learning experiment.
+MLflow is used to track the Machine Learning experiment, metrics, model and generated artifacts.
 
-The experiment stores:
-
-* Model information
-* Evaluation metrics
-* Model artifacts
-* Submission artifacts
-* Experiment runs
-
-### MLflow Experiment
+### Experiment
 
 ```text
 loan_prediction
 ```
 
-### MLflow Run ID
+### Recorded run
 
 ```text
+Run ID:
 98f55631a65a4debbe89554df326f102
 ```
 
-### MLflow Run Name
-
 ```text
+Run Name:
 ambitious-deer-694
 ```
 
----
+The experiment records:
 
-# 📊 Logged Metrics
-
-The following metrics were logged to MLflow:
-
-```text
-auc
-optimal_threshold
-fpr_optimal
-tpr_optimal
-average_threshold
-fpr_average
-tpr_average
-```
-
-This makes it possible to keep track of the experiment and reproduce the evaluation results.
+* Model information
+* Evaluation metrics
+* Classification threshold metrics
+* Model artifacts
+* Kaggle submission artifacts
 
 ---
 
-# 📦 MLflow Artifacts
+## 📦 MLflow Artifacts
 
-The MLflow run contains the generated submission artifact:
+The MLflow run includes the generated:
 
 ```text
 submission.csv
 ```
 
-The file was downloaded from the MLflow run and checked before being submitted to Kaggle.
-
-The downloaded file contains:
+The submission artifact contains:
 
 ```text
 Shape: (39098, 2)
@@ -361,112 +246,284 @@ Columns:
 - loan_status
 ```
 
----
-
-# 🔐 MLflow Model Logging
-
-During model logging, MLflow detected several Scikit-learn objects that were not automatically considered trusted by the model serialization layer.
-
-The model was therefore logged by explicitly specifying the trusted types used by the trained model.
-
-The following configuration was used:
-
-```python
-mlflow.sklearn.log_model(
-    model,
-    name="model",
-    skops_trusted_types=[
-        "sklearn.metrics._ranking.roc_auc_score",
-        "sklearn.metrics._scorer._CurveScorer",
-        "sklearn.metrics._scorer._Scorer",
-        "sklearn.tree._tree.Tree",
-        "sklearn.utils._metadata_requests.MetadataRequest",
-        "sklearn.utils._metadata_requests.MethodMetadataRequest",
-    ],
-)
-```
-
-After applying this configuration, the model was successfully logged to MLflow.
+The artifact was downloaded from MLflow and used for the Kaggle submission.
 
 ---
 
-# 🏆 Kaggle Submission
+## 🏆 Kaggle Submission
 
-Once the submission file had been generated and validated, it was uploaded directly to Kaggle using the Kaggle CLI.
+The generated submission was uploaded to:
 
-The command used was:
+**Loan Approval Prediction — Playground Series S4E10**
+
+[Kaggle Competition](https://www.kaggle.com/competitions/playground-series-s4e10)
+
+The Kaggle CLI was used to submit the generated prediction file:
 
 ```bash
 kaggle competitions submit \
     -c playground-series-s4e10 \
-    -f "submission.csv" \
+    -f submission.csv \
     -m "Submission from MLflow run 98f55631"
 ```
 
-# 🛠️ Technologies Used
+A screenshot of the Kaggle result is available in:
 
-| Technology              | Purpose                 |
-| ----------------------- | ----------------------- |
-| 🐍 **Python 3.12**      | Programming language    |
-| 🐼 **Pandas**           | Data manipulation       |
-| 🔢 **NumPy**            | Numerical computation   |
-| 🤖 **Scikit-learn**     | Machine Learning        |
-| 🌲 **Random Forest**    | Classification model    |
-| 📈 **Matplotlib**       | Data visualization      |
-| 🎨 **Seaborn**          | Data visualization      |
-| 🧪 **MLflow**           | Experiment tracking     |
-| 🏆 **Kaggle CLI**       | Competition submission  |
-| 📓 **Jupyter Notebook** | Development environment |
-| 🌿 **Git**              | Version control         |
-| 🐙 **GitHub**           | Project repository      |
+```text
+Screenshot/Kaggle.png
+```
 
 ---
 
-# 📂 Project Structure
+## 🐳 Docker Deployment
 
+The trained model is deployed as a REST API using Docker and FastAPI.
+
+The deployment architecture is:
+
+```text
+MLflow Tracking Server
+        │
+        │ model
+        ▼
+Docker Container
+        │
+        ▼
+FastAPI
+        │
+        ├── GET /
+        │
+        └── POST /predict
+```
+
+The Docker container loads the model from MLflow using the `MODEL_URI` environment variable.
+
+---
+
+## 🚀 Dockerfile
+
+The project contains a `Dockerfile` in the repository root.
+
+The image can be built with:
+
+```bash
+docker build -t loan-approval-api .
+```
+
+---
+
+## 🧪 Start MLflow
+
+The local MLflow Tracking Server uses the SQLite backend stored in:
+
+```text
+mlflow.db
+```
+
+Start MLflow with:
+
+```bash
+mlflow server \
+    --host 0.0.0.0 \
+    --port 5001 \
+    --backend-store-uri sqlite:///mlflow.db \
+    --serve-artifacts \
+    --allowed-hosts "*"
+```
+
+The MLflow interface will then be available at:
+
+```text
+http://127.0.0.1:5001
+```
+
+The `5001` port is used because port `5000` may already be occupied by another macOS service.
+
+The notebook configures MLflow with:
+
+```python
+import mlflow
+
+mlflow.set_tracking_uri("http://127.0.0.1:5001")
+mlflow.set_experiment("loan_prediction")
+```
+
+---
+
+## 📡 Run the Docker Container
+
+Once the MLflow server is running, start the API container with:
+
+```bash
+docker run --rm -d \
+    -p 8000:8000 \
+    -e MLFLOW_TRACKING_URI=http://host.docker.internal:5001 \
+    -e MODEL_URI=models:/m-5f6d82857fa142349e24023bfc55b5e2 \
+    loan-approval-api
+```
+
+The API will be available at:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## 🔍 Verify the API
+
+The root endpoint can be tested with:
+
+```bash
+curl http://127.0.0.1:8000/
+```
+
+A successful response is similar to:
+
+```json
+{
+  "message": "Loan Approval Prediction API is running",
+  "model_uri": "models:/m-5f6d82857fa142349e24023bfc55b5e2"
+}
+```
+
+---
+
+## 🔮 Prediction Endpoint
+
+The deployed model exposes:
+
+```text
+POST /predict
+```
+
+Example request:
+
+```bash
+curl -X POST http://127.0.0.1:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{
+    "person_age": 30,
+    "person_income": 50000,
+    "person_home_ownership": "RENT",
+    "person_emp_length": 5,
+    "loan_intent": "PERSONAL",
+    "loan_grade": "B",
+    "loan_amnt": 10000,
+    "loan_int_rate": 10.5,
+    "loan_percent_income": 0.20,
+    "cb_person_default_on_file": "N",
+    "cb_person_cred_hist_length": 8
+  }'
+```
+
+The deployed API returns:
+
+```json
+{
+  "prediction": 0
+}
+```
+
+The same prediction is demonstrated in the project notebook using a Python HTTP request.
+
+---
+
+## 📓 Notebook
+
+The complete workflow is documented in:
+
+```text
+notebooks/MLFlow IV - Kaggle II (1).ipynb
+```
+
+The notebook contains:
+
+1. Data collection
+2. Data exploration
+3. Exploratory Data Analysis
+4. Data preprocessing
+5. Model selection
+6. Model training
+7. Model evaluation
+8. Threshold optimization
+9. MLflow experiment tracking
+10. Kaggle submission
+11. Docker and MLflow deployment
+12. Prediction using the deployed API
+
+The deployment section documents:
+
+* Docker image creation
+* Docker container execution
+* MLflow model retrieval
+* API verification
+* Prediction through `/predict`
+* Interpretation of the returned prediction
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology    | Purpose                               |
+| ------------- | ------------------------------------- |
+| Python 3.12   | Programming language                  |
+| Pandas        | Data manipulation                     |
+| NumPy         | Numerical computation                 |
+| Scikit-learn  | Machine Learning                      |
+| Random Forest | Classification                        |
+| Matplotlib    | Data visualization                    |
+| Seaborn       | Data visualization                    |
+| MLflow        | Experiment tracking and model serving |
+| FastAPI       | REST API                              |
+| Uvicorn       | API server                            |
+| Docker        | Containerization                      |
+| Kaggle CLI    | Competition submission                |
+| Jupyter       | Notebook environment                  |
+| Git           | Version control                       |
+| GitHub        | Repository hosting                    |
+
+---
+
+## 📂 Project Structure
+
+```text
 LoanApprovalPredictions/
 │
-├── 📁 data/
-│   ├── 📄 sample_submission.csv
-│   ├── 📄 submission.csv
-│   ├── 📄 test.csv
-│   └── 📄 train.csv
+├── data/
+│   └── loan_prediction/
+│       ├── sample_submission.csv
+│       ├── submission.csv
+│       ├── test.csv
+│       └── train.csv
 │
-├── 📁 notebook/
-│   └── 📓 MLFlow IV - Kaggle II (1).ipynb
+├── notebooks/
+│   └── MLFlow IV - Kaggle II (1).ipynb
 │
-├── 📁 screenshots/
-│   ├── 📸 Kaggle.png
-│   ├── 📸 loanApprovePrediction.png
-│   └── 📸 submission.png
+├── Screenshot/
+│   ├── Kaggle.png
+│   ├── loanApprovalPrediction.png
+│   └── Submission.png
 │
-├── 📄 requirements.txt
-├── 📄 submission.csv
-└── 📄 README.md
-
-> The exact structure may vary depending on the current version of the repository.
+├── app.py
+├── Dockerfile
+├── mlflow.db
+├── requirements.txt
+└── README.md
+```
 
 ---
 
-# ⚙️ Installation
+## ⚙️ Installation
 
-## 1. Clone the repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/fabianrmro/LoanApprovalPredictions.git
-```
-
-Move into the project directory:
-
-```bash
 cd LoanApprovalPredictions
 ```
 
----
-
-## 2. Create the Conda environment
-
-Create a dedicated environment using Python 3.12:
+### 2. Create the Conda environment
 
 ```bash
 conda create -n loan-approval python=3.12 -y
@@ -478,227 +535,91 @@ Activate it:
 conda activate loan-approval
 ```
 
----
-
-## 3. Install the dependencies
-
-Install the required Python packages:
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
----
-
-# 🧪 Running MLflow
-
-Start the local MLflow tracking server:
-
-```bash
-mlflow server
-```
-
-The MLflow interface will be available at:
-
-```text
-http://127.0.0.1:5000
-```
-
-In the Jupyter Notebook, configure MLflow using:
-
-```python
-import mlflow
-
-mlflow.set_tracking_uri("http://127.0.0.1:5000")
-
-mlflow.set_experiment("loan_prediction")
-```
-
----
-
-# 📓 Running the Notebook
-
-Launch Jupyter Notebook:
+### 4. Launch Jupyter
 
 ```bash
 jupyter notebook
 ```
 
-Then open:
+Open:
 
 ```text
-MLFlow IV - Kaggle II (1).ipynb
+notebooks/MLFlow IV - Kaggle II (1).ipynb
 ```
-
-Run the notebook cells sequentially to reproduce the workflow.
 
 ---
 
-# 📊 Reproducibility
+## 📊 Screenshots
 
-To reproduce the project:
+### Kaggle
 
-### Step 1
+![Kaggle result](Screenshot/Kaggle.png)
 
-Clone the repository:
+### Kaggle Submission
 
-```bash
-git clone https://github.com/fabianrmro/LoanApprovalPredictions.git
-```
+![Kaggle submission](Screenshot/Submission.png)
 
-### Step 2
+### Project / Notebook
 
-Create the environment:
-
-```bash
-conda create -n loan-approval python=3.12 -y
-```
-
-### Step 3
-
-Activate the environment:
-
-```bash
-conda activate loan-approval
-```
-
-### Step 4
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Step 5
-
-Start MLflow:
-
-```bash
-mlflow server
-```
-
-### Step 6
-
-Open the notebook:
-
-```bash
-jupyter notebook
-```
-
-### Step 7
-
-Run the Machine Learning workflow.
-
-### Step 8
-
-Generate the submission file.
-
-### Step 9
-
-Log the experiment and artifacts to MLflow.
-
-### Step 10
-
-Submit the predictions to Kaggle.
+![Loan Approval Prediction](Screenshot/loanApprovalPrediction.png)
 
 ---
 
-# 🔗 Project Links
+## 🔄 Reproducibility
 
-## 💻 GitHub
-
-**LoanApprovalPredictions**
-
-[https://github.com/fabianrmro/LoanApprovalPredictions](https://github.com/fabianrmro/LoanApprovalPredictions)
-
----
-
-## 🏆 Kaggle
-
-**Loan Approval Prediction — Playground Series S4E10**
-
-[https://www.kaggle.com/competitions/playground-series-s4e10](https://www.kaggle.com/competitions/playground-series-s4e10)
-
----
-
-# 📌 Key Takeaways
-
-This project demonstrates a complete Machine Learning workflow:
+A complete reproduction of the project follows these main steps:
 
 ```text
-📊 Data
-   ↓
-🔍 Analysis
-   ↓
-🧹 Preprocessing
-   ↓
-⚙️ Feature Engineering
-   ↓
-🤖 Random Forest
-   ↓
-📈 Evaluation
-   ↓
-🎚️ Threshold Optimization
-   ↓
-🧪 MLflow
-   ↓
-📄 Submission CSV
-   ↓
-🏆 Kaggle
+1. Clone repository
+2. Create Conda environment
+3. Install requirements
+4. Start MLflow
+5. Open the notebook
+6. Run the Machine Learning workflow
+7. Generate submission.csv
+8. Log the experiment and model to MLflow
+9. Build the Docker image
+10. Start the Docker container
+11. Call the /predict endpoint
+12. Submit the prediction file to Kaggle
 ```
 
-The project combines model development with experiment tracking and deployment of predictions to a real Kaggle competition environment.
+---
+
+## 📌 Final Result
+
+The project implements a complete Machine Learning and MLOps workflow:
+
+* ✅ Dataset processed
+* ✅ Exploratory analysis performed
+* ✅ Machine Learning pipeline created
+* ✅ Random Forest model trained
+* ✅ Threshold optimization performed
+* ✅ Metrics tracked with MLflow
+* ✅ Model logged to MLflow
+* ✅ Submission artifact generated
+* ✅ Kaggle submission completed
+* ✅ Docker image created
+* ✅ FastAPI application deployed
+* ✅ MLflow model served through Docker
+* ✅ REST prediction endpoint tested successfully
 
 ---
 
-# 🚀 Final Result
+## 👨‍💻 About the Author
 
-The project successfully completed the complete workflow:
-
-### ✅ Dataset processed
-
-### ✅ Machine Learning model trained
-
-### ✅ Model evaluated
-
-### ✅ Classification threshold optimized
-
-### ✅ Metrics tracked with MLflow
-
-### ✅ Model logged to MLflow
-
-### ✅ `submission.csv` generated
-
-### ✅ Submission file validated
-
-### ✅ Kaggle submission completed successfully
-
----
-
-# 👨‍💻 About the Author
-
-## Fabian R. M.
+**Fabian Romero**
 
 Machine Learning & Data Science
 
-This project was developed as part of a practical Machine Learning workflow focused on classification, experiment tracking and Kaggle competition submission.
-
-### 🔗 GitHub
-
-[https://github.com/fabianrmro/LoanApprovalPredictions](https://github.com/fabianrmro/LoanApprovalPredictions)
+GitHub: [LoanApprovalPredictions](https://github.com/fabianrmro/LoanApprovalPredictions)
 
 ---
 
-<p align="center">
-
-## 💳 Loan Approval Predictions
-
-### Machine Learning · Scikit-learn · MLflow · Kaggle
-
-**Made by Fabian R. M.**
-
 ⭐ Thanks for visiting the project! ⭐
-
-</p>
-```
